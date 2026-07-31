@@ -18,12 +18,12 @@ jobs:
         uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.SSH_HOST }}
-          user: ${{ secrets.SSH_USER }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE}}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             set -e
             cd ~/${{ secrets.DIR }}
             git fetch origin main 
             git reset -hard origin/main
-            docker compose -f docker-compose.traefik.yml up -d --remove-orphans
+            docker compose -f docker-compose.traefik.yml up -d --build --remove-orphans
