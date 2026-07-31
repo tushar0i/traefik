@@ -25,5 +25,5 @@ jobs:
             set -e
             cd ~/${{ secrets.DIR }}
             git fetch origin main 
-            git reset -hard origin/main
+            git reset --hard origin/main
             docker compose -f docker-compose.traefik.yml up -d --build --remove-orphans
