@@ -7,6 +7,7 @@ services:
       - "--providers.docker.network=traefik-public"
       - "--accesslog=true"
       - "--accesslog.filepath=/logs/requests.log"
+      - "--accesslog.filepath=stdout"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
